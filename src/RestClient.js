@@ -180,8 +180,8 @@ RestClient.prototype.index = function(callback) {
   return this.request("/api/v1/public/index", {}, callback);
 };
 
-RestClient.prototype.account = function(callback) {
-  return this.request("/api/v1/private/account", {}, callback);
+RestClient.prototype.account = function(currency, callback) {
+  return this.request("/api/v1/private/account", {currency: currency}, callback);
 };
 
 RestClient.prototype.buy = function(instrument, quantity, price, postOnly, label, callback) {
