@@ -253,13 +253,14 @@ RestClient.prototype.orderhistory = function(count) {
   return this.request("/api/v1/private/orderhistory", options, callback);
 };
 
-RestClient.prototype.tradehistory = function(count, instrument, startTradeId, callback) {
+RestClient.prototype.tradehistory = function(count, currency, instrument, startTradeId, callback) {
   if (instrument === undefined ) { instrument = "all"};
   var options = {
     instrument: instrument
   };
   if (count !== undefined ) { options["count"] = count};
-  if (startTradeId !== undefined ) { options["startTradeId"] = startTradeId}
+  if (currency !== undefined) { options["currency"] = currency};
+  if (startTradeId !== undefined ) { options["startTradeId"] = startTradeId};
   return this.request("/api/v1/private/tradehistory", options, callback);
 };
 
